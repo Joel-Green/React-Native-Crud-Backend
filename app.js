@@ -1,10 +1,17 @@
 const express = require('express');
 const app = express();
 const mongoose  = require('mongoose');
+const bodyParser = require ('body-parser');
+
+// app.use('/userstest',userTestRoutes);
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
 const userRoutes = require('./api/routes/users');
-const userTestRoutes = require('./api/routes/userstest');
-app.use('/userstest',userTestRoutes);
+// const userTestRoutes = require('./api/routes/userstest');
+
 app.use('/users',userRoutes);
+
 
 mongoose.connect('mongodb://localhost:27017/ReactTest',{ useNewUrlParser: true })
 
