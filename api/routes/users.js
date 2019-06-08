@@ -38,10 +38,10 @@ router.post('/add',(req,res)=>{
 
  })
 
- router.post('/delete/:userId',(req,res,next)=>{
+ router.get('/delete/:userId',(req,res,next)=>{
     const id = req.params.userId;
 
-    User.findByIdAndRemove({_id: id }, (err,users) =>{
+    User.findByIdAndRemove(_id = id , (err,users) =>{
         if(err)
         res.json(err)
         else 
@@ -49,10 +49,6 @@ router.post('/add',(req,res)=>{
     } )
 
 
-
-    res.status(200).json({
-        message:`get test id deleted is ${id}  `
-    })
 })
 
 
