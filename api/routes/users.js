@@ -12,7 +12,7 @@ router.get('/',(req,res,next)=>{
         }
         else
         {
-            res.json(users);
+            res.send('users');
         }
     })
 });
